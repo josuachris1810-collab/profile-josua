@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Personal Branding - Josua christian</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffffff 0%, #b3d9ff 50%, #4a90e2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        header {
+            background: linear-gradient(to right, #007bff, #4a90e2);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            object-fit: cover;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, #007bff, #4a90e2);
+            bottom: 0;
+            left: 0;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        li {
+            padding: 1rem;
+            background: #f0f8ff;
+            border-left: 5px solid #007bff;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        li:hover {
+            background: #e6f7ff;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .skill {
+            width: 150px;
+            text-align: center;
+            margin: 1rem;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #007bff, #4a90e2);
+            width: 0%;
+            transition: width 2s ease-in-out;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .project-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        form {
+            display: grid;
+            gap: 1rem;
+            max-width: 500px;
+        }
+
+        input, textarea {
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 0.75rem;
+            background: linear-gradient(to right, #007bff, #4a90e2);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(to right, #0056b3, #357abd);
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #007bff;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .profile-container {
+                flex-direction: column;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+            section {
+                padding: 1rem;
+            }
+        }
+
+        /* Animation for loading */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="profile-container">
+            <div class="hero-text animate-in" style="animation-delay: 0.2s;">
+                <h1>Josua christian</h1>
+                <p>murid smkn 7 batam</p>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="animate-in" style="animation-delay: 0.4s;">
+        <h2>Tentang Saya</h2>
+        <p>hai saya adalah murid dari sekolah smkn 7 batam,hobi saya bermain bola dan game saya juga suka memasak </p>
+    </section>
+
+    <section id="skills" class="animate-in" style="animation-delay: 0.6s;">
+        <h2>Keterampilan</h2>
+        <div class="skills">
+            <div class="skill">
+                <h3>HTML/CSS</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="html-fill"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>JavaScript</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="js-fill"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>Python</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="python-fill"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>UI/UX Design</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="design-fill"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="animate-in" style="animation-delay: 0.8s;">
+        <h2>Proyek Unggulan</h2>
+        <div class="projects">
+            <div class="project-card">
+                <img class="project-img" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3a1720a1-6140-4eb4-9dd2-b575d254d367.png" alt="Screenshot of a sleek e-commerce website layout showing product grids, shopping cart, and modern navigation with blue and white accents for a clean, professional online store design" />
+                <h3>E-Commerce Website</h3>
+                <p>Platform penjualan online dengan integrasi payment gateway dan desain responsif.</p>
+            </div>
+            <div class="project-card">
+                <img class="project-img" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/adc154be-10f3-4505-99be-1bfc37162041.png" alt="Wireframe illustration of a mobile app interface for a productivity tool, displaying task lists, timers, and analytics charts in intuitive blue-themed user experience" />
+                <h3>App Produktivitas</h3>
+                <p>Aplikasi untuk manajemen waktu dan tugas harian, dibangun dengan React Native.</p>
+            </div>
+            <div class="project-card">
+                <img class="project-img" src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4904216e-ba62-4a40-86d4-f294db89c969.png" alt="Rendering of a corporate portfolio website featuring hero banners, service sections, and testimonials with elegant blue gradients and white spaces for branding agility" />
+                <h3>Portfolio Korporat</h3>
+                <p>Situs web untuk perusahaan dengan fokus pada branding dan storytelling visual.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="animate-in" style="animation-delay: 1s;">
+        <h2>Kontak</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Nama Anda" required>
+            <input type="email" id="email" placeholder="Email Anda" required>
+            <textarea id="message" placeholder="Pesan Anda" rows="5" required></textarea>
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+    <footer id="footer" class="animate-in" style="animation-delay: 1.2s;">
+        <p>© 2023 [Nama Anda]. Semua hak dilindungi. | [LinkedIn | GitHub | Email]</p>
+    </footer>
+
+    <script>
+        // Animate progress bars on scroll
+        function animateProgressBars() {
+            const bars = document.querySelectorAll('.progress-fill');
+            bars.forEach(bar => {
+                const width = bar.dataset.width || '80%'; // Default to 80%, can set per bar in HTML
+                bar.style.width = width;
+            });
+        }
+
+        // Set custom widths for skills (adjust as needed)
+        document.getElementById('html-fill').dataset.width = '95%';
+        document.getElementById('js-fill').dataset.width = '90%';
+        document.getElementById('python-fill').dataset.width = '85%';
+        document.getElementById('design-fill').dataset.width = '92%';
+
+        // Handle form submission (simple alert for demo)
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah dikirim (demo). Ganti dengan integrasi email seperti EmailJS.');
+            this.reset();
+        });
+
+        // Trigger animations on load and scroll
+        window.addEventListener('load', () => {
+            // After loading, show sections with animation
+            setTimeout(animateProgressBars, 500); // Small delay
+        });
+
+        // Intersection Observer for lazy-like animation triggers
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        });
+        document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
+</content>
+</create_file>
